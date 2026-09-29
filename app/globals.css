@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0B0B0A;
+  --surface: #131312;
+  --surface-raised: #1A1A18;
+  --border: #232320;
+  --border-strong: #33332E;
+  --text: #E8E6E1;
+  --text-muted: #8A8880;
+  --text-faint: #5C5B56;
+  --accent: #C8471B;
+  --accent-dim: #7A2B10;
+  --positive: #7A9A5B;
+  --warning: #C9A227;
+
+  --font-outfit: 'Outfit', sans-serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+}
+
+@theme {
+  --color-iron-bg: var(--bg);
+  --color-iron-surface: var(--surface);
+  --color-iron-surface-raised: var(--surface-raised);
+  --color-iron-border: var(--border);
+  --color-iron-border-strong: var(--border-strong);
+  --color-iron-text: var(--text);
+  --color-iron-muted: var(--text-muted);
+  --color-iron-faint: var(--text-faint);
+  --color-iron-accent: var(--accent);
+  --color-iron-accent-dim: var(--accent-dim);
+  --color-iron-positive: var(--positive);
+  --color-iron-warning: var(--warning);
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tabular numbers for clean column alignment */
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Aesthetic rounder heading font */
+.font-condensed {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+/* Clean aesthetic card style */
+.iron-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.iron-card-raised {
+  background-color: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+}
+
+/* Section header rule */
+.iron-section-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.iron-section-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+/* Subtle flat noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
